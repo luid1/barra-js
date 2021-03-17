@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+        <title>Sei la</title>
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+                box-sizing: border-box;
+            }
+            header{
+                display:flex;
+            }
+            .resto{
+                width:100%;
+                height:20px;
+                background-color: blue; 
+            }
+            .pesquisa{
+                cursor: pointer;
+            }
+            .icons{
+                background-color: gray;
+                display:inline-block;
+                overflow: hidden;
+                width:100%;
+                text-align:center;
+            }
+            /*
+            criar duas classes de abrir e a de fechar com transição
+            */
+            .show{
+                height: 60px;
+                transition: 1s;
+            }
+            .hide{
+                height: 0;
+                transition:1s;
+            }
+            /*pós criadas vamos mexer no 
+            javas script para fazer a animação*/
+
+
+            div a{
+                padding: 10px 0;
+                text-decoration:none;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="resto">
+                <div class="pesquisa"><i class= "fas fa-bars"></i></div>
+        </header>
+        <div id = "menu" class="icons hide">
+            <a href="">Home</a>
+            </br>
+            <a href="">Lista</a>
+            </br>
+            <a href="">Login</a>   
+        </div>
+        <script>
+            /*criamos uma var (variavel) q funciona no js para
+            chamarmos a nossa barra aqui q no html esta com 
+            class="pesquisa"*/
+
+            var iconMenu = document.querySelectorAll('.pesquisa');
+
+            /*chamamos nossa var adicionamos o evento de click*/
+            iconMenu[0].addEventListener('click',()=>{
+                
+                /*agora estamos chamando nosso id e renomeando dentro
+                do js por "menu"*/
+
+                let menu = document.getElementById('menu');
+
+                /* se menu class lista conter escondido ( após o click)
+                menu show e tira menu hide */
+                if(menu.classList.contains('hide')){
+                    menu.classList.add('show');
+                    menu.classList.remove('hide');
+                
+                /* se não (qnd a barra estiver clickada)
+                menu hide e tira menu show*/
+                }else{
+                    menu.classList.add('hide');
+                    menu.classList.remove('show');
+                }
+                
+            });
+        </script>
+    </body>
+</html>
